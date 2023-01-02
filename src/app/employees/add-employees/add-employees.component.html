@@ -1,0 +1,36 @@
+<mat-grid-list cols="3" rowHeight="1:1.2" style="margin-top: 20px;">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile style="border:1px solid  #ccc;box-shadow: 5px 5px 5px #f1f1f1;">
+        <form class="example-form" [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+            <h2>Add Employee</h2>
+            <mat-form-field appearance="outline" style="width:100%;">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width:100%;">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+            <div style="display: flex;">
+                <mat-form-field appearance="outline" style="width:100%;flex: 1;">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dob">
+                </mat-form-field>
+                <div style="display: flex;align-items: center;flex-direction: column;">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"
+                        style="justify-content: space-around;margin-top: 13px;margin-left: 5px;"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+            <mat-form-field appearance="outline" style="width:100%;">
+                <mat-label>Department</mat-label>
+                <input matInput formControlName="dept">
+            </mat-form-field>
+            <div style="display: flex;justify-content: end;">
+                <button mat-raised-button>Clear</button>&nbsp;&nbsp;
+                <button mat-raised-button color="primary">Save</button>
+            </div>
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
